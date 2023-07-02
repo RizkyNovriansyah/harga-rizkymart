@@ -3,293 +3,112 @@
 
 <head>
 <style>
-    @import url("https://fonts.googleapis.com/css?family=Roboto:400,400i,700");
-    @import url("https://fonts.googleapis.com/css2?family=Patrick+Hand&display=swap");
-
     body {
-        background-color: gainsboro;
-        margin: 0;
+    margin: 20px auto;
+    font-family: 'Lato';
+    background:#666;
+    color:#fff;
     }
 
-    h1 {
-        text-align: center;
-        font-family: "Roboto", sans-serif;
+    *{
+    margin:0;
+    padding:0;
     }
 
-    .paper {
-        font-family: "Patrick Hand", cursive;
-        position: relative;
-        line-height: 25px;
-        box-sizing: content-box;
-        width: 425px;
-        height: 550px;
-        background-color: white;
-        margin: 0 auto;
-        box-shadow: 0px 0px 3px 1px rgba(0, 0, 0, 0.2);
-        transition: transform 0.3s, margin 0.3s;
-
-        &:before {
-            content: "";
-            position: absolute;
-            height: 100%;
-            width: 2px;
-            background: rgba(255, 0, 0, 0.3);
-            margin-left: 48px;
-            z-index: 2;
-        }
-
-        .lines {
-            top: 50px;
-            position: relative;
-            box-sizing: content-box;
-            height: calc(550px - 50px);
-            padding-right: 8px;
-            padding-left: 56px;
-            background-image: repeating-linear-gradient(
-                white 0px,
-                white 23.5px,
-                steelblue 25px
-            );
-
-            ul {
-                margin: 0;
-            }
-        }
-
-        .holes {
-            position: absolute;
-            height: 100%;
-            width: 48px;
-            margin-top: 1px;
-            margin-bottom: 1px;
-            top: 0;
-            left: 0;
-
-            .hole {
-                position: absolute;
-                width: 20px;
-                height: 20px;
-                border-radius: 50%;
-                background-color: gainsboro;
-                left: 12.5px;
-                box-shadow: 0px 1px 2px rgba(0, 0, 0, 0.2) inset;
-
-                &:nth-child(1) {
-                    top: 50px;
-                }
-
-                &:nth-child(2) {
-                    top: 262.5px;
-                }
-
-                &:nth-child(3) {
-                    top: 475px;
-                }
-            }
-        }
+    h2 {
+    font-weight: bold;
+    font-size: 2rem;
+    }
+    p {
+    font-family: 'Reenie Beanie';
+    font-size: 2rem;
+    }
+    ul,li{
+    list-style:none;
+    }
+    ul{
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    }
+    ul li a{
+    text-decoration:none;
+    color:#000;
+    background:#ffc;
+    display:block;
+    height:10em;
+    width:10em;
+    padding:1em;
+    box-shadow: 5px 5px 7px rgba(33,33,33,.7);
+    transform: rotate(-6deg);
+    transition: transform .15s linear;
     }
 
-    [contenteditable] {
-        border: 0;
-        outline: 0;
+    ul li:nth-child(even) a{
+    transform:rotate(4deg);
+    position:relative;
+    top:5px;
+    background:#cfc;
+    }
+    ul li:nth-child(3n) a{
+    transform:rotate(-3deg);
+    position:relative;
+    top:-5px;
+    background:#ccf;
+    }
+    ul li:nth-child(5n) a{
+    transform:rotate(5deg);
+    position:relative;
+    top:-10px;
     }
 
-    @media only screen and (max-width: 600px) {
-        h1 {
-            font-size: 1.8em;
-        }
-        .paper {
-            margin-top: -55px;
-            -webkit-transform: scale(0.8);
-            -webkit-transform-origin: 50% 50%;
-            -webkit-transition: 0.3s;
-            transform-origin: 50% 50%;
-            transform: scale(0.8);
-            transition: transform 0.3s, margin 0.3s;
-        }
+    ul li a:hover,ul li a:focus{
+    box-shadow:10px 10px 7px rgba(0,0,0,.7);
+    transform: scale(1.25);
+    position:relative;
+    z-index:5;
     }
 
-    @media only screen and (max-width: 450px) {
-        h1 {
-            font-size: 1.5em;
-        }
-        .paper {
-            margin-top: -82.5px;
-            -webkit-transform: scale(0.7);
-            -webkit-transform-origin: 50% 50%;
-            -webkit-transition: 0.3s;
-            transform-origin: 50% 50%;
-            transform: scale(0.7);
-            transition: transform 0.3s, margin 0.3s;
-        }
+    ul li{
+    margin:1em;
     }
-
-    @media only screen and (max-height: 600px) {
-        body {
-            overflow: hidden;
-        }
-        .paper {
-            margin-top: -110px;
-            -webkit-transform: scale(0.6);
-            -webkit-transform-origin: 50% 50%;
-            -webkit-transition: 0.3s;
-            transform-origin: 50% 50%;
-            transform: scale(0.6);
-            transition: transform 0.3s, margin 0.3s;
-        }
-    }
-
-    @media only screen and (max-height: 450px) {
-        body {
-            overflow: hidden;
-        }
-        .paper {
-            margin-top: -137.5px;
-            -webkit-transform: scale(0.5);
-            -webkit-transform-origin: 50% 50%;
-            -webkit-transition: 0.3s;
-            transform-origin: 50% 50%;
-            transform: scale(0.5);
-            transition: transform 0.3s, margin 0.3s;
-        }
-    }
-
-    @media only screen and (max-width: 430px) {
-        h1 {
-            text-align: left;
-            font-size: 1.3em;
-            margin-left: 12px;
-        }
-        .paper {
-            margin: 0;
-            margin-left: 12px;
-            margin-top: -110px;
-            -webkit-transform: scale(0.6);
-            -webkit-transform-origin: 0% 50%;
-            -webkit-transition: 0.3s;
-            transform-origin: 0% 50%;
-            transform: scale(0.6);
-            transition: transform 0.3s, margin 0.3s;
-        }
-    }
-
-    @media only screen and (max-height: 375px) {
-        body {
-            overflow: hidden;
-        }
-        h1 {
-            text-align: left;
-            font-size: 1.3em;
-            margin-left: 12px;
-        }
-        .paper {
-            margin: 0;
-            margin-left: 12px;
-            margin-top: -165px;
-            -webkit-transform: scale(0.4);
-            -webkit-transform-origin: 0% 50%;
-            -webkit-transition: 0.3s;
-            transform-origin: 0% 50%;
-            transform: scale(0.4);
-            transition: transform 0.3s, margin 0.3s;
-        }
-    }
-
-    @media only screen and (max-height: 300px) {
-        body {
-            overflow: hidden;
-        }
-        h1 {
-            text-align: left;
-            font-size: 1.3em;
-            margin-left: 12px;
-        }
-        .paper {
-            margin: 0;
-            margin-left: 12px;
-            margin-top: -192.5px;
-            -webkit-transform: scale(0.3);
-            -webkit-transform-origin: 0% 50%;
-            -webkit-transition: 0.3s;
-            transform-origin: 0% 50%;
-            transform: scale(0.3);
-            transition: transform 0.3s, margin 0.3s;
-        }
-    }
-
 </style>
 </head>
 <body>
-    <div class="paper">
-        <div class="lines">
-            <div>
-                <strong>Harga Rizky Mart</strong>
-                <ul>
-                    <li>Roti
-                        <ul>
-                            <li>Roti Gepeng : <strong>1500</strong></li>
-                            <li>Roti Aoka : <strong>2500</strong></li>
-                            <li>Roti Cream : <strong>2500</strong></li>
-                            <li>Roti Sisir : <strong>3000</strong></li>
-                        </ul>
-                    </li>
+    <ul>
+        <li>
+            <a>
+                <h2>Roti</h2>
+                <p>
+                Roti Gepeng : <strong>1500</strong> <br>
+                Roti Aoka : <strong>2500</strong> <br>
+                Roti Cream : <strong>2500</strong> <br>
+                Roti Sisir : <strong>3000</strong> <br>
+                </p>
+            </a>
+        </li>
 
-                    <li>Ciki Ciki
-                        <ul>
-                            <li> <strong>1000</strong>
-                                <ul>
-                                    <li>PILUS</li>
-                                    <li>TRICKS</li>
-                                    <li>DEKA</li>
-                                    <li>SOSIS</li>
-                                </ul>
-                            </li>
+        <li>
+            <a>
+                <h2>1000</h2>
+                <p>
+                    PILUS<br>
+                    TRICKS<br>
+                    DEKA <br>
+                    SONICE<br>
+                </p>
+            </a>
+        </li>
 
-                            <li> <strong>1500</strong>
-                                <ul>
-                                    <li>TIME BREAK</li>
-                                    <li>SUPERMAN</li>
-                                    <li>MIE KREMES</li>
-                                    <li>SIPLAH</li>
-                                </ul>
-                            </li>
-
-                            <li> <strong>2000</strong>
-                                <ul>
-                                    <li>BENG BENG</li>
-                                    <li>GOOD TIME</li>
-                                </ul>
-                            </li>
-
-                            <li> <strong>2500</strong>
-                                <ul>
-                                    <li>SARI GANDUM</li>
-                                </ul>
-                            </li>
-
-                            <li> <strong>3000</strong>
-                                <ul>
-                                    <li>FINMA</li>
-                                </ul>
-                            </li>
-                        </ul>
-                    </li>
-
-                    <li>MICIN
-                        <ul>
-                            <li><strong>2500</strong>/Bungkus</li>
-                            <li><strong>4000</strong>/2 Bungkus</li>
-                        </ul>
-                    </li>
-
-                </ul>
-            </div>
-        </div>
-        <div class="holes">
-            <div class="hole"></div>
-            <div class="hole"></div>
-            <div class="hole"></div>
-        </div>
-    </div>
+        <li>
+            <a>
+                <h2>1500</h2>
+                <p>
+                    TIME BREAK<br>
+                    MIE KREMES<br>
+                </p>
+            </a>
+        </li>
+    </ul>
 </body>
 </html>
